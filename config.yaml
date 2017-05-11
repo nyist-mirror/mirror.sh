@@ -1,0 +1,46 @@
+#
+# 1  DEBUG  2  INFO  3 WARNING 4  ERROR
+#
+# DEBUG模式方便调试会输出较为详细的信息，但是日志文件可能会变得很大
+# INFO 模式 debug的信息不会被输出，其余都会输出
+# WARNING 模式，只有警告和错误会被输出
+# ERROR  模式，只有错误会输出到日志文件，警告等其他信息都会被忽略
+#
+
+logLevel: 1
+
+#日志文件路径
+logFile: /var/log/mirror/mirror.log
+
+#归档文件路径，在某些情况下备份管理程序需要将一些临时数据写入该文件，请确保其有写入权限
+achiveFile: /usr/mirror/achive.data
+
+templete:
+  templateFile_zh_CN: templates/index.html
+  indexFile_zh_CN: /usr/mirror/index.html
+  title_zh_CN: 南阳理工学院开源镜像站
+  titleH1_zh_CN: 南阳理工学院开源镜像站
+  titleH2_zh_CN: 南阳理工学院信息化建设与管理中心建设维护
+  titleH3_zh_CN: 本站收录了 Centos Kali Ubuntu Android 等镜像供校内外用户使用
+  footerH1_zh_CN: This site contains Centos Kali Ubuntu Android and other mirrors for internal and external users
+  footerH2_zh_CN: 本站由南阳理工学院信息化建设与管理中心建设维护
+  notice_zh_CN: 新版镜像站上线，我们加入了众多新的镜像，如果您有添加新镜像的需求，请给我们发邮件或者通过qq群俩系我们。
+  email:  gengkaifeng@nyist.edu.cn
+  qqGroup:  743459667
+  gitHub: https://github.com/djanedu/
+  helpUrl: /help/
+
+# cron 支持dayly  hourly mouthly 
+
+mirrors:
+  - name: ubuntu
+    uri: /ubuntu/
+    command: rsync -azP  --delete mirrors.tuna.tsinghua.edu.cn::ubuntu  /usr/mirror/ubuntu/ &> /dev/null
+    taskUnique: true
+    cron: dayly
+
+  - name: centos
+    uri: /centos/
+    command: rsync -azP  --delete mirrors.tuna.tsinghua.edu.cn::centos  /usr/mirror/centos/ &> /dev/null
+    taskUnique: true
+    cron: dayly

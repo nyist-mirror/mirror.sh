@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+ <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>${title_zh_CN}</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.css" rel="stylesheet" />
+  <link href="css/private.min.css" rel="stylesheet" />
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+ </head>
+ <body>
+  <div class="container-fuild">
+   <div class="pull-right" style="margin-top: 2em;margin-right: 2.2em; ">
+    <a href="${helpUrl}" style="font-size: 1.3em; color: #ffffff; text-decoration:none;">Help</a>
+   </div>
+   <div class="blackboard">
+    <div class="container">
+     <p style="color:#ffffff; font-size: 2.8em;">${titleH1_zh_CN}</p>
+     <p style="color:#ffffff; font-size: 1em;">${titleH2_zh_CN}</p>
+     <p style="color:#ffffff;font-size: 1em;">${titleH3_zh_CN}</p>
+    </div>
+   </div>
+  </div>
+
+  <div class="container">
+   <div class="row">
+    <div class="col-md-9 panel-size">
+     <p class="h3" style="margin-top: 0.5em; margin-bottom: 0.5em;"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Mirror List</p>
+     <table class="table">
+      <tbody>
+       <tr>
+        <td>Mirror Name</td>
+        <td>Last Update</td>
+        <td>Status</td>
+       </tr>
+       <tr>
+        <td><a href="cd/{{mirror.mirror_name}}/">ubuntu</a></td>
+        <td>2017-05-09 02:44:32</td>
+        <td> <span class="label label-info">syncing</span></td>
+       </tr>
+       <tr>
+        <td><a href="/{{mirror.mirror_name}}/">ubuntu</a></td>
+        <td>2017-05-09 02:44:32</td>
+        <td> <span class="label label-info">syncing</span></td>
+       </tr>
+       <tr>
+        <td><a href="/{{mirror.mirror_name}}/">ubuntu</a></td>
+        <td>2017-05-09 02:44:32</td>
+        <td> <span class="label label-info">syncing</span></td>
+       </tr>
+       <tr>
+        <td><a href="/{{mirror.mirror_name}}/">ubuntu</a></td>
+        <td>2017-05-09 02:44:32</td>
+        <td> <span class="label label-info">syncing</span></td>
+       </tr>
+       <tr>
+        <td><a href="/{{mirror.mirror_name}}/">ubuntu</a></td>
+        <td>2017-05-09 02:44:32</td>
+        <td> <span class="label label-info">syncing</span></td>
+       </tr>
+       <tr>
+        <td><a href="/{{mirror.mirror_name}}/">ubuntu</a></td>
+        <td>2017-05-09 02:44:32</td>
+        <td> <span class="label label-info">syncing</span></td>
+       </tr>
+       <tr>
+        <td><a href="/{{mirror.mirror_name}}/">ubuntu</a></td>
+        <td>2017-05-09 02:44:32</td>
+        <td> <span class="label label-info">syncing</span></td>
+       </tr>
+       <tr>
+        <td><a href="/{{mirror.mirror_name}}/">ubuntu</a></td>
+        <td>2017-05-09 02:44:32</td>
+        <td> <span class="label label-info">syncing</span></td>
+       </tr>
+       <tr>
+        <td><a href="/{{mirror.mirror_name}}/">ubuntu</a></td>
+        <td>2017-05-09 02:44:32</td>
+        <td> <span class="label label-info">syncing</span></td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="col-md-3">
+     <div class="row">
+      <div class="col-md-12">
+       <p class="h3" style="margin-top: 0.5em; margin-bottom: 0.5em;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;通知</p>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+       <p style="font-size: 1.1em;">&nbsp;&nbsp;&nbsp;&nbsp;${notice_zh_CN}</p>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+       <p class="h3" style="margin-top: 0.5em; margin-bottom: 0.5em;"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;其他</p>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+       <p style="font-size: 1.1em;">&nbsp;&nbsp;&nbsp;&nbsp;${qqGroup}${email}。</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+   <footer class="bs-docs-footer">
+    <div class="container">
+     <ul class="bs-docs-footer-links">
+      <li><a href="${gitHub}">GitHub 仓库</a></li>
+      <li><a href="${email}">邮箱${email}</a></li>
+      <li><a href="http://www.youzhan.org">信息化管理中心</a></li>
+      <li><a href="../about/">关于</a></li>
+     </ul>
+     <p>${footerH1_zh_CN}</p>
+     <p>${footerH2_zh_CN}</p>
+    </div>
+   </footer>
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="js/jquery.min.js"></script>
+   <!-- Include all compiled plugins (below), or include individual files as needed -->
+   <script src="js/bootstrap.min.js"></script>
+ </body>
+</html>
