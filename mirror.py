@@ -1,10 +1,9 @@
 from optparse import OptionParser
-#from mako.template import Template
+from mako.template import Template
 import logging
 import json
 import time
 
-logging.basicConfig(level=logging.INFO,format="%(asctime)s %(filename)s [line:%(lineno)d] %(levelname)s %(message)s",datefmt='%F  %H:%M:%S')#,filename=os.path.join(dirname,"log/dbbackup.log"),filemode='a')
 
 parser = OptionParser(usage="%prog [options]")
 parser.add_option("--name",
@@ -36,7 +35,31 @@ parser.add_option("--db",
                   type="string",
                   dest="db",
                   help="db name")
+parser.add_option("--log",
+                  action="store",
+                  type="string",
+                  dest="log",
+                  help="log file")
+
+parser.add_option("--template",
+                  action="store",
+                  type="string",
+                  dest="template",
+                  help="template file")
+
+parser.add_option("--out",
+                  action="store",
+                  type="string",
+                  dest="out",
+                  help="out file")
+
 (options, args) = parser.parse_args()
+
+if not options.log:
+    raise Exception('error: log file size  is required, use the --log parameter to specify it')
+    exit(-1)
+
+logging.basicConfig(level=logging.INFO,format="%(asctime)s %(filename)s [line:%(lineno)d] %(levelname)s %(message)s",datefmt='%F  %H:%M:%S',filename=options.log,filemode='a')
 
 if not options.name:
     logging.error('error: Mirror name is required, use the --name parameter to specify the mirror name')
@@ -63,6 +86,19 @@ if not options.db:
     raise Exception('error: Db file size  is required, use the --size parameter to specify it')
     exit(-1)
 
+
+
+if not options.template:
+    logging.error('error: template file   is required, use the --template parameter to specify it')
+    raise Exception('error: template file   is required, use the --template parameter to specify it')
+    exit(-1)
+
+if not options.out:
+    logging.error('error: out file   is required, use the --out parameter to specify it')
+    raise Exception('error: out file   is required, use the --out parameter to specify it')
+    exit(-1)
+
+
 with open(options.db) as db:
     database = db.read()
 
@@ -79,11 +115,7 @@ logging.info(data)
 
 with open(options.db,'w') as db:
     db.write(json.dumps(data))
+zhtemplate=Template(filename=options.template,input_encoding='utf-8',output_encoding='utf-8',encoding_errors='replace')
 
-
-zhtemplate = Template(filename='templates/index.html',
-                          input_encoding='utf-8',
-                          output_encoding='utf-8',
-                          encoding_errors='replace')
-
-print zhtemplate.render(data)
+with open(options.out,'w') as out:
+    out.write(zhtemplate.render(data=data))
