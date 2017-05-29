@@ -83,7 +83,7 @@ if not options.size:
 
 if not options.db:
     logging.error('error: Db file size  is required, use the --db parameter to specify it')
-    raise Exception('error: Db file size  is required, use the --size parameter to specify it')
+    raise Exception('error: Db file size  is required, use the --db parameter to specify it')
     exit(-1)
 
 
