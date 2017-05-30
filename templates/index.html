@@ -7518,7 +7518,15 @@
         <td>${value['time']}</td>
 	      <td>${value['size']}</td>
 	      <td>${value['num']}</td>
-        <td> <span class="label label-success">${value['status']}</span></td>
+        <td>
+          %if value['status'] == '0':
+            <span class="label label-success">success</span>
+          %elif value['status'] == 'rsyncing':
+            <span class="label label-info">rsyncing</span>
+          %else:
+            <span class="label label-danger">failed</span>
+          %endif
+        </td>
        </tr>
   %endfor
       </tbody>
